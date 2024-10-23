@@ -1,0 +1,28 @@
+{
+  "name": "swiggy-demo",
+  "version": "1.0.0",
+  "description": "Swiggy Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "start": "npx parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/venkataManikanta07/swiggy-demo.git"
+  },
+  "author": "Venkata Manikanta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/venkataManikanta07/swiggy-demo/issues"
+  },
+  "homepage": "https://github.com/venkataManikanta07/swiggy-demo#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}
