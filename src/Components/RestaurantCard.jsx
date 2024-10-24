@@ -1,18 +1,26 @@
-import React from 'react'
+import React from "react";
 
-export default function RestaurantCard({name, area, rating, cost, cusines,  price}) {
+export default function RestaurantCard({
+  name,
+  image,
+  locality,
+  avgRating,
+  cuisines,
+  deliveryTime,
+  costForTwo,
+}) {
+  const imageUrl = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${image}`;
   return (
-    <div className="res-card">
-      <img
-        alt="pizza hut"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/7/17/33a9fbb9-9c06-4d00-8c93-576ad9046ffa_66108.jpg"
-      ></img>
-      <h3>{name}</h3>
-      <h5>{rating}</h5>
-      <h5>40 - 45 mins</h5>
-      <h5>{cost}</h5>
-      <p>{cusines.join(", ")}</p>
-      <h5>{area}</h5>
+    <div className="res-cards-container">
+      <div className="res-card">
+      <img alt={`${name} - ${locality}`} src={imageUrl} />
+        <h3>{name}</h3>
+        <h4>{locality}</h4>
+        <h5>Avg Rating: {avgRating}</h5>
+        <h5>Delivery Time: {deliveryTime} mins</h5>
+        <h5>Cost for Two: {costForTwo}</h5>
+        <p>Cuisines: {cuisines.join(", ")}</p>
+      </div>
     </div>
-  )
+  );
 }
