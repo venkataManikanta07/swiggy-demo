@@ -119,3 +119,29 @@ input {
   margin: 8px 0px;
   padding: 8px;
 }
+
+#home-navigators {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+.specific-restro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.menu-card {
+  border: 1px solid #000;
+  border-radius: 4px;
+  width: 70rem;
+  height: 8rem;
+  padding: 6px;
+  margin: 4px 0px;
+}
+
+.menu-card > p {
+  font-size: 14px;
+}
