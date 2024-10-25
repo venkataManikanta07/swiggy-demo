@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 export default function Body() {
   const [listOfRestaurants, setListOfRestaurents] = useState([]);
@@ -55,7 +56,7 @@ export default function Body() {
         <button
           className="topRestuarentBtn"
           onClick={() => {
-            const topRests = listOfRestaurants.filter((res) => {
+            const topRests = filteredRestaurants.filter((res) => {
               return res.info.avgRating > 4.2;
             });
             setFilteredRestaurents(topRests);
@@ -66,7 +67,7 @@ export default function Body() {
       </div>
       <div id="restaurents">
         {filteredRestaurants.length === 0 ? (
-          <h3>Loading...</h3>
+          <Shimmer/>
         ) : (
           filteredRestaurants.map((restaurant) => (
             <RestaurantCard
