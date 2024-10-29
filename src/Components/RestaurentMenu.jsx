@@ -7,7 +7,6 @@ const RestaurentMenu = () => {
   const { resid } = useParams();
   const restaurantsInformation = useRestaurentMenu(resid);
   const status = useOnlineStatus(); 
-  console.log("wifi status is: " + status);
    
 
   if (restaurantsInformation === null) {
