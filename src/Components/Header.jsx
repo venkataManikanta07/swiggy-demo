@@ -1,8 +1,10 @@
 import React from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 export default function Header() {
+  const onlineStatus = useOnlineStatus();
   return (
     <div className="header">
       <div className="image-container">
@@ -10,6 +12,7 @@ export default function Header() {
       </div>
       <div className="nav-items">
         <ul>
+          <li>Status: {onlineStatus ? "✅" :"❌"}</li>
           <Link to="/" id="home-navigators">
             Home
           </Link>
@@ -19,7 +22,9 @@ export default function Header() {
           <Link to="/contact" id="home-navigators">
             Contact us
           </Link>
-          <Link id="home-navigators"> Cart</Link>
+          <Link to="/grocery" id="home-navigators">
+            Grocery
+          </Link>
           <Link id="home-navigators"> Cart</Link>
         </ul>
       </div>

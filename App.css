@@ -21,7 +21,7 @@
   margin-top: 10px;
 }
 .nav-items > ul {
-  width: 400px;
+  width: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -43,6 +43,9 @@
   width: 220px;
   border: 0.5px solid rgb(186, 171, 171);
   padding: 2.5px;
+  text-decoration: none;
+  list-style-type: none;
+  color: black;
 }
 
 .shimmer-card-container {
@@ -144,4 +147,17 @@ input {
 
 .menu-card > p {
   font-size: 14px;
+}
+
+#custom-link {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.user-card {
+  padding: 10px;
+  margin: 20px 0px;
+  border: 1px solid black;
+  height: auto;
+  width: 500px;
 }

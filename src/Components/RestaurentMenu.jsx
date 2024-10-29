@@ -1,46 +1,36 @@
-import { useEffect, useState } from "react";
 import { RestaurentMenuItemCard } from "./RestaurentMenuItemCard";
+import useRestaurentMenu from "../utils/useRestaurentMenu";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constants";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurentMenu = () => {
-  const [restaurantsInformation, setRestaurentInformation] = useState(null);
-  const [restaurentName, setRestaurentName] = useState("");
   const { resid } = useParams();
+  const restaurantsInformation = useRestaurentMenu(resid);
+  const status = useOnlineStatus(); 
+  console.log("wifi status is: " + status);
+   
 
-  useEffect(() => {
-    fetchRestaurentMenu();
-  }, []);
-
-  const fetchRestaurentMenu = async () => {
-    const data = await fetch(
-      MENU_API + resid + "&catalog_qa=undefined&submitAction=ENTER"
-    );
-    const jsonData = await data.json();
-    setRestaurentInformation(
-      jsonData.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
-        .itemCards
-    );
-    setRestaurentName(jsonData.data.cards[0].card.card.text);
-  };
   if (restaurantsInformation === null) {
-    return <h2>Fetching Data...</h2>;
+    return <h1>Loading Restaurents Menu.....</h1>;
   }
+
   return (
     <div className="specific-restro-container">
-      <h2>{restaurentName}</h2>
       {restaurantsInformation && restaurantsInformation.length > 0 ? (
         restaurantsInformation.map((menuItem) => (
           <RestaurentMenuItemCard
             key={menuItem.card.info.id}
-            restaurentName={restaurentName}
             itemName={menuItem.card.info.name}
-            price={menuItem.card.info.defaultPrice}
+            price={
+              menuItem.card.info.defaultPrice ??
+              menuItem.card.info.finalPrice ??
+              menuItem.card.info.price
+            }
             description={menuItem.card.info.description}
           />
         ))
       ) : (
-        <h2>Unable to Load Menu Items...</h2>
+        <h2>Unable to load RESTAURENTS</h2>
       )}
     </div>
   );
