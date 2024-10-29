@@ -1,39 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { SWIGGY_API } from "../utils/constants";
 import useRestaurentsFetch from "../utils/useRestaurentsFetch";
 
 export default function Body() {
-  // const [listOfRestaurants, setListOfRestaurents] = useState([]);
-  // const [filteredRestaurants, setFilteredRestaurents] = useState([]);
   const [searchText, setSearchText] = useState("");
   const searchRestaurents = () => {
     const filteredRes = filteredRestaurants.filter((res) => {
       return res.info.name.toLowerCase().includes(searchText.toLowerCase());
     });
-    setFilteredRestaurents(filteredRes);
   };
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await fetch(SWIGGY_API);
-  //     const jsonData = await response.json();
-  //     const restaurants =
-  //       jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
-
-  //     setListOfRestaurents(restaurants);
-  //     setFilteredRestaurents(restaurants);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
 
   const { listOfRestaurants, filteredRestaurants } = useRestaurentsFetch();
 
