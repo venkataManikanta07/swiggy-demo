@@ -14,7 +14,7 @@ const RestaurentMenu = () => {
   }
 
   return (
-    <div className="specific-restro-container">
+    <div className="specific-restro-container flex flex-col items-center justify-center">
       {restaurantsInformation && restaurantsInformation.length > 0 ? (
         restaurantsInformation.map((menuItem) => (
           <RestaurentMenuItemCard
@@ -29,7 +29,7 @@ const RestaurentMenu = () => {
           />
         ))
       ) : (
-        <h2>Unable to load RESTAURENTS</h2>
+        <h2>Unable to load Menu items...</h2>
       )}
     </div>
   );

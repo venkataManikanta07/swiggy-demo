@@ -11,16 +11,14 @@ export default function RestaurantCard({
 }) {
   const imageUrl = `https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${image}`;
   return (
-    <div className="res-cards-container">
-      <div className="res-card">
-      <img alt={`${name} - ${locality}`} src={imageUrl} />
-        <h3>{name}</h3>
-        <h4>{locality}</h4>
-        <h5>Avg Rating: {avgRating}</h5>
-        <h5>Delivery Time: {deliveryTime} mins</h5>
-        <h5>Cost for Two: {costForTwo}</h5>
-        <p>Cuisines: {cuisines.join(", ")}</p>
-      </div>
+    <div className="res-cards-container w-56 h-[520px] border m-2 p-2 rounded-md">
+      <img alt={`${name} - ${locality}`} src={imageUrl} className="w-56 h-60  object-cover border rounded-md" />
+        <h3 className="text-xl font-bold mt-2">{name}</h3>
+        <h4 className="text-lg font-medium mt-[5px]">{locality}</h4>
+        <h4 className="text-base font-medium mt-[5px]">Avg Rating: {avgRating}</h4>
+        <h4 className="text-base font-medium mt-[5px]">Delivery Time: {deliveryTime} mins</h4>
+        <h4 className="text-base font-medium mt-[5px]">Cost for Two: {costForTwo}</h4>
+        <p className="text-base font-medium mt-[5px]">Cuisines: {cuisines.join(", ")}</p>
     </div>
   );
 }

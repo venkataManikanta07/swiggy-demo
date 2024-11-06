@@ -3,7 +3,7 @@ import { SWIGGY_API } from "../utils/constants";
 
 const useRestaurentsFetch = () => {
   const [listOfRestaurants, setListOfRestaurents] = useState([]);
-  const [filteredRestaurants, setFilteredRestaurents] = useState([]);
+  // const [filteredRestaurants, setFilteredRestaurents] = useState([]); 
 
   useEffect(() => {
     fetchData();
@@ -17,13 +17,13 @@ const useRestaurentsFetch = () => {
         jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
 
       setListOfRestaurents(restaurants);
-      setFilteredRestaurents(restaurants);
+      // setFilteredRestaurents(restaurants)
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  return { listOfRestaurants, filteredRestaurants };
+  return { listOfRestaurants };
 };
 
 export default useRestaurentsFetch;

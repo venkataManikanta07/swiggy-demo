@@ -6,26 +6,29 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 export default function Header() {
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="header">
-      <div className="image-container">
-        <img alt="HeaderImage" className="headerImage" src={LOGO_URL} />
+    <div className="m-1 flex justify-between items-center h-[6rem] border border-gray-500 border-solid">
+      <div className="image-container m-1">
+        <img alt="HeaderImage" className="w-16 mx-4" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Status: {onlineStatus ? "✅" :"❌"}</li>
-          <Link to="/" id="home-navigators">
+      <div className="flex">
+        <ul className=" flex ">
+          <li className="mr-4">Status: {onlineStatus ? "✅" : "❌"}</li>
+          <Link className="mr-4" to="/" id="home-navigators">
             Home
           </Link>
-          <Link to="/about" id="home-navigators">
+          <Link className="mr-4" to="/about" id="home-navigators">
             About us
           </Link>
-          <Link to="/contact" id="home-navigators">
+          <Link className="mr-4" to="/contact" id="home-navigators">
             Contact us
           </Link>
-          <Link to="/grocery" id="home-navigators">
+          <Link className="mr-4" to="/grocery" id="home-navigators">
             Grocery
           </Link>
-          <Link id="home-navigators"> Cart</Link>
+          <Link className="mr-4" id="home-navigators">
+            {" "}
+            Cart
+          </Link>
         </ul>
       </div>
     </div>

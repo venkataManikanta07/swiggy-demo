@@ -8,14 +8,13 @@ class About extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="flex justify-center items-center m-1 p-3 w-80 border border-gray-900 border-solid">
         <UserClass name={"FIRST CLASS"} />
       </div>
     );
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 }
 
 export default About;
