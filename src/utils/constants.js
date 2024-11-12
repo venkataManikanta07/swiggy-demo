@@ -6,3 +6,5 @@ export const SWIGGY_API =
 export const CORS_BYPASS_KEY = "https://corsproxy.io/";
 
 export const MENU_API = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.5213712&lng=78.3671518&restaurantId=";
+
+export const CDN_IMG_id = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"

@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import React, { useContext, useEffect, useState } from "react";
+import RestaurantCard, { BestSeller } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { SWIGGY_API } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 export default function Body() {
   const [listOfRestaurants, setListOfRestaurents] = useState([]);
   const [filteredRestaurants, setFilteredRestaurents] = useState([]);
+  const RestaurantCardPromoted = BestSeller(RestaurantCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const [searchText, setSearchText] = useState("");
   const searchRestaurents = () => {
@@ -17,7 +20,6 @@ export default function Body() {
   };
 
   useEffect(() => {
-    console.log(filteredRestaurants.length);
     fetchData();
   }, []);
 
@@ -37,7 +39,6 @@ export default function Body() {
 
   return (
     <div className="body">
-      {console.log(filteredRestaurants.length)}
       <div className="search-container flex m-2 p-1">
         <input
           className="border w-56 p-1 h-10 rounded-md border-blue-950 mr-2"
@@ -68,6 +69,12 @@ export default function Body() {
         >
           Top Restuarents
         </button>
+        <label className="m-2">Set User</label>
+        <input
+          className="border w-56 p-1 h-10 rounded-md border-blue-950 mr-2"
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)}
+        ></input>
       </div>
       <div className="flex flex-wrap">
         {filteredRestaurants.length === 0 ? (
@@ -78,15 +85,11 @@ export default function Body() {
               key={restaurant.info.id}
               to={"/restaurents/" + restaurant.info.id}
             >
-              <RestaurantCard
-                name={restaurant.info.name}
-                image={restaurant.info.cloudinaryImageId}
-                locality={restaurant.info.locality}
-                avgRating={restaurant.info.avgRating}
-                cuisines={restaurant.info.cuisines}
-                deliveryTime={restaurant.info.sla.deliveryTime}
-                costForTwo={restaurant.info.costForTwo}
-              />
+              {restaurant.info.avgRating >= 4.4 ? (
+                <RestaurantCardPromoted resData={restaurant.info} />
+              ) : (
+                <RestaurantCard resData={restaurant.info} />
+              )}
             </Link>
           ))
         )}
