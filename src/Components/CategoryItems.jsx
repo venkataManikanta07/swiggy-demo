@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
 import { CDN_IMG_id } from "../utils/constants";
+import { addItem } from "../utils/cartSlice";
 
 const CategoryItems = ({ itemCards }) => {
+  const dispatch = useDispatch();
+
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
   return (
     <div>
       {itemCards.map((item) => (
@@ -19,9 +26,14 @@ const CategoryItems = ({ itemCards }) => {
             <p className="text-wrap">{item.card.info.description}</p>
           </div>
           <div className="w-2/12">
-          <div className="absolute">
-            <button className="text-green-700 font-bold font-sans bg-white border rounded-md mx-1 p-1 mt-[104px] ml-[36px] ">Add +</button>
-          </div>
+            <div className="absolute">
+              <button
+                className="text-green-700 font-bold font-sans bg-white border rounded-md mx-1 p-1 mt-[104px] ml-[36px] "
+                onClick={() => handleAddItem(item)}
+              >
+                Add +
+              </button>
+            </div>
             <img
               src={CDN_IMG_id + item.card.info.imageId}
               className="w-32 h-32 object-cover border"
