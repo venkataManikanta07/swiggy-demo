@@ -2,13 +2,28 @@ import { useContext } from "react";
 import UserContext from "../utils/UserContext";
 
 const Contact = () => {
-    const {loggedInUser} = useContext(UserContext)
-    return (
-        <div>
-            <h2>Contact Us @ 12345467</h2>
-            <h3>{loggedInUser}</h3>
-        </div>
-    )
-}
+  const { loggedInUser } = useContext(UserContext);
+  return (
+    <div>
+      <h1 className="text-center font-bold text-2xl">Contact us </h1>
+      <form className="mt-5 flex justify-center items-center">
+        <input
+          type="text"
+          className="border border-black p-1 m-1"
+          placeholder="name"
+        />
+        <input
+          type="text"
+          className="border border-black p-1 m-1"
+          placeholder="message"
+        />
+        <button className="text-white font-bold font-sans bg-sky-950 border rounded-md m-1 p-1">
+          Sumbit
+        </button>
+      </form>
+      {/* <h3 className="mt-12 text-center font-semibold text-xl">{loggedInUser}</h3> */}
+    </div>
+  );
+};
 
-export default Contact; 
+export default Contact;

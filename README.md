@@ -12,3 +12,11 @@ use cors chrome extension to bypass the fetch Api cors issue.
 - dispatch (action)
 - selector 
 
+
+# Testing
+- Install React Testing Library 
+- Install jest
+- Installed Babel Configuration 
+- Configure babel. 
+- configure parcel config file to disable babel transpilation (not to make them conflict)
+- Jest configuration 
