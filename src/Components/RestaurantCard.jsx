@@ -2,6 +2,7 @@ import React from "react";
 import { CDN_IMG_id } from "../utils/constants";
 
 function RestaurantCard({ resData }) {
+  console.log("RESRESRES", resData)
   const {
     name = resData.name,
     image = resData.cloudinaryImageId,
