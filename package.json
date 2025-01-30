@@ -2,11 +2,10 @@
   "name": "swiggy-demo",
   "version": "1.0.0",
   "description": "Swiggy Application",
-  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "watch-test": "jest --watch", 
-    "start": "npx parcel index.html", 
+    "watch-test": "jest --watch",
+    "start": "parcel index.html",
     "build": "parcel build index.html"
   },
   "repository": {
