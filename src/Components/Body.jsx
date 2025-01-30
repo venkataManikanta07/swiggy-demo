@@ -42,7 +42,7 @@ export default function Body() {
       <div className="search-container flex m-2 p-1">
         <input
           className="border w-56 p-1 h-10 rounded-md border-blue-950 mr-2"
-          data-testid = "searchInput"
+          data-testid="searchInput"
           type="text"
           placeholder="Search Restaurent"
           value={searchText}
@@ -87,9 +87,15 @@ export default function Body() {
               to={"/restaurents/" + restaurant.info.id}
             >
               {restaurant.info.avgRating >= 4.4 ? (
-                <RestaurantCardPromoted data-testid="restaurant-card" resData={restaurant.info} />
+                <RestaurantCardPromoted
+                  data-testid="restaurant-card"
+                  resData={restaurant.info}
+                />
               ) : (
-                <RestaurantCard data-testid="restaurant-card" resData={restaurant.info} />
+                <RestaurantCard
+                  data-testid="restaurant-card"
+                  resData={restaurant.info}
+                />
               )}
             </Link>
           ))

@@ -17,7 +17,7 @@ export default function App() {
   const [userName, setUserName] = useState();
   useEffect(() => {
     const data = {
-      name: "Akshay Saini",
+      name: "Sanu",
     };
     setUserName(data.name);
   }, []);

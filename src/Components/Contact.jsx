@@ -17,11 +17,10 @@ const Contact = () => {
           className="border border-black p-1 m-1"
           placeholder="message"
         />
-        <button className="text-white font-bold font-sans bg-sky-950 border rounded-md m-1 p-1">
+        <button className="text-white font-bold font-sans bg-sky-950 border rounded-md m-1 px-2 py-1">
           Sumbit
         </button>
       </form>
-      {/* <h3 className="mt-12 text-center font-semibold text-xl">{loggedInUser}</h3> */}
     </div>
   );
 };

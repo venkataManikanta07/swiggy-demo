@@ -15,7 +15,7 @@ class UserClass extends React.Component {
   }
 
   async componentDidMount() {
-    const data = await fetch("https://api.github.com/users/akshaymarch7");
+    const data = await fetch("https://api.github.com/users/venkataManikanta07");
     const jsonData = await data.json();
 
     this.setState({
@@ -31,11 +31,9 @@ class UserClass extends React.Component {
     const { name, company, location } = this.state.userInfo;
     return (
       <div className="user-card">
-        <h2>Name is: {name}</h2>
+        <h2 className="text-2xl font-bold">Name is: {name}</h2>
         <h2>Company @: {company}</h2>
         <h2>{location}</h2>
-        <p>From Class component of Akshay details</p>
-
         <h3>Logged In user</h3>
         <div>
           <UserContext.Consumer>
