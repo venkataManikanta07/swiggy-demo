@@ -1,0 +1,7 @@
+{
+    "build": {
+      "command": "parcel build index.html",
+      "outputDirectory": "dist"
+    }
+  }
+  
