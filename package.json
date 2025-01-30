@@ -6,7 +6,7 @@
     "test": "jest",
     "watch-test": "jest --watch",
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./"
+    "build": "parcel build index.html --public-url ./ --dist-dir dist"
 
   },
   "repository": {
