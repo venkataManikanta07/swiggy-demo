@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import RestaurantCard, { BestSeller } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import { SWIGGY_API } from "../utils/constants";
+import { PROXY, PROXY_API, SWIGGY_API } from "../utils/constants";
 import UserContext from "../utils/UserContext";
 
 export default function Body() {
@@ -25,7 +25,9 @@ export default function Body() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(SWIGGY_API);
+      const encodedUrl = encodeURIComponent(SWIGGY_API);
+      const PROXY_API_DATA = PROXY_API + encodedUrl; 
+      const response = await fetch(PROXY_API_DATA);
       const jsonData = await response.json();
       const restaurants =
         jsonData.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;

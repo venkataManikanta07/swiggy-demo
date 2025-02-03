@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MENU_API } from "../utils/constants";
+import { MENU_API, PROXY_API, SWIGGY_API } from "../utils/constants";
 
 const useRestaurentMenu = (resid) => {
   const [restaurantsInformation, setRestaurantsInformation] = useState(null);
@@ -10,8 +10,10 @@ const useRestaurentMenu = (resid) => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(MENU_API + resid);
-      const jsonData = await data.json();
+      const encodedUrl = encodeURIComponent(MENU_API + resid);
+      const PROXY_API_DATA = PROXY_API + encodedUrl
+      const data = await fetch(PROXY_API_DATA);
+      const jsonData = await data.json()
       setCategories(
         jsonData.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards.filter(
           (c) => {

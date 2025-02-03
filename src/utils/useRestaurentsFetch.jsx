@@ -3,8 +3,6 @@ import { SWIGGY_API } from "../utils/constants";
 
 const useRestaurentsFetch = () => {
   const [listOfRestaurants, setListOfRestaurents] = useState([]);
-  // const [filteredRestaurants, setFilteredRestaurents] = useState([]); 
-
   useEffect(() => {
     fetchData();
   }, []);
