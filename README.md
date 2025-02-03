@@ -2,7 +2,8 @@
 Swiggy Sample Application
 
 # API Issue: 
-use cors chrome extension to bypass the fetch Api cors issue.   
+use cors chrome extension to bypass the fetch Api cors issue.  
+(Cleared the CORS issue)
 
 # Redux Toolkit
 - Install @reduxjs/toolkit and react-redux
