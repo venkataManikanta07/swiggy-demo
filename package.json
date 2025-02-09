@@ -50,9 +50,8 @@
     "node": "20.x"
   },
   "targets": {
-    "node": {
-      "context": "node",
-      "outputFormat": "commonjs"
+    "default": { 
+      "context": "browser"
     }
   },
   "proxy": "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9804517&lng=77.746281&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
